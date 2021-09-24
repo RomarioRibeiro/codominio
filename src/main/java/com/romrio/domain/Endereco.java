@@ -1,7 +1,19 @@
 package com.romrio.domain;
 
-public class Endereco {
+import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+@Entity
+public class Endereco implements Serializable{
+
+	
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String logrador;
 	private String bairro;
@@ -9,6 +21,12 @@ public class Endereco {
 	private String cep;
 	private String cidade;
 	private String UF;
+	
+	@OneToOne
+	private Condominio condominio;
+	@OneToOne
+	private Bloco bloco;
+	
 	
 	public Endereco() {
 		super();

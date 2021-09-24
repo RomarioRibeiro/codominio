@@ -1,10 +1,18 @@
 package com.romrio.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Seguranca {
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-	
+public class Seguranca implements Serializable{
+
+
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String cpf;
