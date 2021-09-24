@@ -26,8 +26,8 @@ public class Endereco implements Serializable{
 	private Condominio condominio;
 	@OneToOne
 	private Bloco bloco;
-	
-	
+	@OneToOne
+	private Apartamento apartamento;
 	public Endereco() {
 		super();
 	}

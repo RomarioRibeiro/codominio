@@ -2,10 +2,12 @@ package com.romrio.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.ManyToOne;
+@Entity
 public class Visitante implements Serializable{
 
 	
@@ -15,6 +17,7 @@ public class Visitante implements Serializable{
 	private Integer id;
 	private String nome;
 	private String cpf;
+	@ManyToOne
 	private Morador morador;
 	
 	public Visitante() {

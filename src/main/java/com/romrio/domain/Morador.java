@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 @Entity
 public class Morador implements Serializable {
 
@@ -18,9 +19,10 @@ public class Morador implements Serializable {
 	private String nome;
 	private String cpf;
 	private Date dataNasc;
-	@ManyToOne
+	@OneToOne
 	private Apartamento apatamento;
-	
+	@ManyToOne
+	private Seguranca seguro;
 	public Morador() {
 		super();
 	}

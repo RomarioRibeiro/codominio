@@ -3,10 +3,12 @@ package com.romrio.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.OneToMany;
+@Entity
 public class Seguranca implements Serializable{
 
 
@@ -18,10 +20,12 @@ public class Seguranca implements Serializable{
 	private String cpf;
 	private Date dataAdmisao;
 	
+	
 	public Seguranca() {
 		super();
 	}
 
+	
 	public Seguranca(Integer id, String nome, String cpf, Date dataAdmisao) {
 		super();
 		this.id = id;
