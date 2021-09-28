@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 @Entity
 public class Endereco implements Serializable{
 
@@ -22,12 +21,7 @@ public class Endereco implements Serializable{
 	private String cidade;
 	private String UF;
 	
-	@OneToOne
-	private Condominio condominio;
-	@OneToOne
-	private Bloco bloco;
-	@OneToOne
-	private Apartamento apartamento;
+	
 	public Endereco() {
 		super();
 	}
