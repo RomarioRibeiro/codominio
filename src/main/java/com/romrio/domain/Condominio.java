@@ -2,6 +2,7 @@ package com.romrio.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +17,7 @@ public class Condominio implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private Integer cnpj;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
 	private Endereco end;
 	public int getId() {
 		return id;

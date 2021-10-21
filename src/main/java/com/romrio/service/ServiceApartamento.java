@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.romrio.domain.Apartamento;
 import com.romrio.domain.repostory.RepositoryApartamento;
 
+
 @Service
 public class ServiceApartamento {
 	@Autowired
@@ -40,4 +41,5 @@ public class ServiceApartamento {
 			throw new DataIntegrityViolationException("nao e possivel excluir um apartamento que possui condominio");
 		}
 	 }
+	 
 }

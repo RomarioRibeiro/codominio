@@ -36,10 +36,11 @@ public class ResourscesApartamento {
 		return ResponseEntity.created(uri).build();
 	}
 	@RequestMapping(value = "/{id}",method = RequestMethod.PUT)
-	public ResponseEntity<Void> update(@RequestBody Apartamento obj, @PathVariable Integer id){
+	public ResponseEntity<Apartamento> update(@RequestBody Apartamento obj, @PathVariable Integer id){
 		obj.setId(id);
-		obj=service.update(obj);
-		return ResponseEntity.noContent().build();
+		Apartamento objNovo=service.update(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+		return ResponseEntity.created(uri).body(objNovo);
 	}
 	@RequestMapping(value= "/{id}",method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete (@PathVariable Integer id){
