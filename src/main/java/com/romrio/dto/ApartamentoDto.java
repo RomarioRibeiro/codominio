@@ -1,8 +1,7 @@
 package com.romrio.dto;
 
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
+import com.romrio.domain.Apartamento;
 import com.romrio.domain.Bloco;
 import com.romrio.domain.Condominio;
 import com.romrio.domain.Endereco;
@@ -11,11 +10,11 @@ public class ApartamentoDto {
 
 	private Integer id;
 	private int numero;
-	private Bloco idBloco;
+	private int idBloco;
 	private String descricao;
-	private Condominio idCondominio;
+	private int idCondominio;
 	private Integer cnpj;
-	private Endereco idEndereco;
+	private int idEndereco;
 	private String logrador;
 	private String bairro;
 	private String complemento;
@@ -25,8 +24,8 @@ public class ApartamentoDto {
 	public ApartamentoDto() {
 		super();
 	}
-	public ApartamentoDto(Integer id, int numero, Bloco idBloco, String descricao, Condominio idCondominio,
-			Integer cnpj, Endereco idEndereco, String logrador, String bairro, String complemento, String cep,
+	public ApartamentoDto(Integer id, int numero, int idBloco, String descricao, int idCondominio,
+			Integer cnpj, int idEndereco, String logrador, String bairro, String complemento, String cep,
 			String cidade, String uF) {
 		super();
 		this.id = id;
@@ -43,6 +42,22 @@ public class ApartamentoDto {
 		this.cidade = cidade;
 		UF = uF;
 	}
+	public ApartamentoDto(Apartamento obj) {
+		this.id = obj.getId();
+		this.numero = obj.getNumero();
+		this.idBloco = obj.getBloco().getId();
+		this.descricao = obj.getBloco().getDescricao();
+		this.idCondominio = obj.getBloco().getCondominio().getId();
+		this.cnpj = obj.getBloco().getCondominio().getCnpj();
+		this.idEndereco = obj.getBloco().getCondominio().getEnd().getId();
+		this.logrador = obj.getBloco().getCondominio().getEnd().getLogrador();
+		this.bairro = obj.getBloco().getCondominio().getEnd().getBairro();
+		this.complemento = obj.getBloco().getCondominio().getEnd().getComplemento();
+		this.cep = obj.getBloco().getCondominio().getEnd().getCep();
+		this.cidade = obj.getBloco().getCondominio().getEnd().getCidade();
+		this.UF = obj.getBloco().getCondominio().getEnd().getUF();
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -55,10 +70,10 @@ public class ApartamentoDto {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public Bloco getIdBloco() {
+	public int getIdBloco() {
 		return idBloco;
 	}
-	public void setIdBloco(Bloco idBloco) {
+	public void setIdBloco(int idBloco) {
 		this.idBloco = idBloco;
 	}
 	public String getDescricao() {
@@ -67,10 +82,10 @@ public class ApartamentoDto {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Condominio getIdCondominio() {
+	public int getIdCondominio() {
 		return idCondominio;
 	}
-	public void setIdCondominio(Condominio idCondominio) {
+	public void setIdCondominio(int idCondominio) {
 		this.idCondominio = idCondominio;
 	}
 	public Integer getCnpj() {
@@ -79,10 +94,10 @@ public class ApartamentoDto {
 	public void setCnpj(Integer cnpj) {
 		this.cnpj = cnpj;
 	}
-	public Endereco getIdEndereco() {
+	public int getIdEndereco() {
 		return idEndereco;
 	}
-	public void setIdEndereco(Endereco idEndereco) {
+	public void setIdEndereco(int idEndereco) {
 		this.idEndereco = idEndereco;
 	}
 	public String getLogrador() {

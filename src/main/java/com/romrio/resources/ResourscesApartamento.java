@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.romrio.domain.Apartamento;
+import com.romrio.dto.ApartamentoDto;
 import com.romrio.service.ServiceApartamento;
 
 @RestController
@@ -24,7 +25,7 @@ public class ResourscesApartamento {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
 		
-		Apartamento obj = service.find(id);
+		ApartamentoDto obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 		
 	}
@@ -49,8 +50,8 @@ public class ResourscesApartamento {
 	}
 	
 	@RequestMapping(method =RequestMethod.GET)
-	public ResponseEntity<List<Apartamento>> findAll() {
-		List<Apartamento> list = service.findAll();
+	public ResponseEntity<List<ApartamentoDto>> findAll() {
+		List<ApartamentoDto> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	

@@ -8,6 +8,6 @@ import com.romrio.domain.Apartamento;
 @Repository
 public interface RepositoryApartamento extends JpaRepository<Apartamento, Integer> {
 @Query(value="select*from apartamento where id = ?",nativeQuery = true )
-Apartamento findAll(Integer id);
+Apartamento find(Integer id);
 	
 }
