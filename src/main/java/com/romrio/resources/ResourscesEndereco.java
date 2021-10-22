@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.romrio.domain.Endereco;
-import com.romrio.domain.Endereco;
+import com.romrio.dto.EnderecoDto;
 import com.romrio.service.ServiceEndereco;
 
 @RestController
@@ -24,8 +24,8 @@ public class ResourscesEndereco {
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id ){
 		
-		Endereco obj = service.find(id);
-		return ResponseEntity.ok().body(obj);
+		EnderecoDto objDto = service.find(id);
+		return ResponseEntity.ok().body(objDto);
 	}
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert (@RequestBody Endereco obj){
@@ -45,8 +45,8 @@ public class ResourscesEndereco {
 		return ResponseEntity.noContent().build();
 	}
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List <Endereco>> findAll(){
-		List <Endereco> list = service.findAll();
-		return ResponseEntity.ok().body(list);
+	public ResponseEntity<List <EnderecoDto>> findAll(){
+		List <EnderecoDto> listDto = service.findAll();
+		return ResponseEntity.ok().body(listDto);
 	}
 }

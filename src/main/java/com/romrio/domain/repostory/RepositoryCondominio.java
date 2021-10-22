@@ -8,6 +8,6 @@ import com.romrio.domain.Condominio;
 @Repository
 public interface RepositoryCondominio extends JpaRepository<Condominio, Integer> {
 @Query(value="select*from condominio where id = ?",nativeQuery = true )
-Condominio findAll(Integer id);
+Condominio find(Integer id);
 	
 }

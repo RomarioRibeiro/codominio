@@ -9,6 +9,6 @@ import com.romrio.domain.Bloco;
 @Repository
 public interface RepositoryBloco extends JpaRepository<Bloco, Integer> {
 	@Query(value = "select*from bloco where id = ?", nativeQuery = true)
-	Bloco findAll(Integer id);
+	Bloco find(Integer id);
 
 }

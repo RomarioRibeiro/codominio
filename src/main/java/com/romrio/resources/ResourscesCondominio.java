@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.romrio.domain.Condominio;
-import com.romrio.domain.Condominio;
+import com.romrio.dto.CondominioDto;
 import com.romrio.service.ServiceCondominio;
 
 @RestController
@@ -25,8 +25,8 @@ public class ResourscesCondominio {
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
 
-		Condominio obj = service.find(id);
-		return ResponseEntity.ok().body(obj);
+		CondominioDto objDto = service.find(id);
+		return ResponseEntity.ok().body(objDto);
 	}
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert (@RequestBody Condominio obj){
@@ -46,8 +46,8 @@ public class ResourscesCondominio {
 		return ResponseEntity.noContent().build();
 	}
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List <Condominio>>findAll(){
-		List <Condominio> list = service.findAll();
-		return ResponseEntity.ok().body(list);
+	public ResponseEntity<List <CondominioDto>>findAll(){
+		List <CondominioDto> listDto = service.findAll();
+		return ResponseEntity.ok().body(listDto);
 	}
 }

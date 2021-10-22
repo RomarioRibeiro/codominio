@@ -1,16 +1,13 @@
 package com.romrio.dto;
 
-import com.romrio.domain.Bloco;
 import com.romrio.domain.Condominio;
 import com.romrio.domain.Endereco;
 
-public class BlocoDto {
+public class CondominioDto {
 
-	private Integer id;
-	private String descricao;
-	private Condominio idCondominio;
+	private int id;
 	private Integer cnpj;
-	private Endereco idEndereco;
+	private int idEnd;
 	private String logrador;
 	private String bairro;
 	private String complemento;
@@ -18,64 +15,42 @@ public class BlocoDto {
 	private String cidade;
 	private String UF;
 	
-	public BlocoDto() {
+	public CondominioDto() {
 		super();
 	}
 
-	public BlocoDto(Integer id, String descricao, Condominio idCondominio, Integer cnpj, Endereco idEndereco,
-			String logrador, String bairro, String complemento, String cep, String cidade, String uF) {
+	public CondominioDto(int id, Integer cnpj, int idEnd, String logrador, String bairro, String complemento,
+			String cep, String cidade, String uF) {
 		super();
 		this.id = id;
-		this.descricao = descricao;
-		this.idCondominio = idCondominio;
 		this.cnpj = cnpj;
-		this.idEndereco = idEndereco;
+		this.idEnd = idEnd;
 		this.logrador = logrador;
 		this.bairro = bairro;
 		this.complemento = complemento;
 		this.cep = cep;
 		this.cidade = cidade;
-		UF = uF;
+		this.UF = UF;
 	}
 
-	public BlocoDto(Bloco obj) {
-		this.id = id;
-		this.descricao = descricao;
-		this.idCondominio = idCondominio;
-		this.cnpj = cnpj;
-		this.idEndereco = idEndereco;
-		this.logrador = logrador;
-		this.bairro = bairro;
-		this.complemento = complemento;
-		this.cep = cep;
-		this.cidade = cidade;
-		this.UF =UF;
+	public CondominioDto(Condominio obj) {
+		this.id = obj.getId();
+		this.cnpj = obj.getCnpj();
+		this.idEnd =obj.getEnd().getId();
+		this.logrador = obj.getEnd().getLogrador();
+		this.bairro = obj.getEnd().getBairro();
+		this.complemento = obj.getEnd().getComplemento();
+		this.cep = obj.getEnd().getCep();
+		this.cidade = obj.getEnd().getCidade();
+		this.UF = obj.getEnd().getUF();
 	}
 
-
-
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public Condominio getIdCondominio() {
-		return idCondominio;
-	}
-
-	public void setIdCondominio(Condominio idCondominio) {
-		this.idCondominio = idCondominio;
 	}
 
 	public Integer getCnpj() {
@@ -86,12 +61,12 @@ public class BlocoDto {
 		this.cnpj = cnpj;
 	}
 
-	public Endereco getIdEndereco() {
-		return idEndereco;
+	public int getIdEnd() {
+		return idEnd;
 	}
 
-	public void setIdEndereco(Endereco idEndereco) {
-		this.idEndereco = idEndereco;
+	public void setIdEnd(int idEnd) {
+		this.idEnd = idEnd;
 	}
 
 	public String getLogrador() {
@@ -141,6 +116,7 @@ public class BlocoDto {
 	public void setUF(String uF) {
 		UF = uF;
 	}
-
+	
+	
 	
 }

@@ -8,6 +8,6 @@ import com.romrio.domain.Endereco;
 @Repository
 public interface RepositoryEndereco extends JpaRepository<Endereco, Integer> {
 @Query(value="select * from endereco where id = ?",nativeQuery = true )
-Endereco findAll(Integer id);
+Endereco find (Integer id);
 	
 }
