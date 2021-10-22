@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.romrio.domain.Seguranca;
-import com.romrio.domain.Seguranca;
+import com.romrio.dto.SegurancaDto;
 import com.romrio.service.ServiceSeguranca;
 
 @RestController
@@ -24,7 +24,7 @@ public class ResourscesSeguranca {
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id ){
 		
-		Seguranca obj = service.find(id);
+		SegurancaDto obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	@RequestMapping(method = RequestMethod.POST)
@@ -45,8 +45,8 @@ public class ResourscesSeguranca {
 		return ResponseEntity.noContent().build();
 	}
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List <Seguranca>> findAll(){
-		List <Seguranca> list = service.findAll();
-		return ResponseEntity.ok().body(list);
+	public ResponseEntity<List <SegurancaDto>> findAll(){
+		List <SegurancaDto> listDto = service.findAll();
+		return ResponseEntity.ok().body(listDto);
 	}
 }

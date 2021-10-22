@@ -8,6 +8,6 @@ import com.romrio.domain.Morador;
 @Repository
 public interface RepositoryMorador extends JpaRepository<Morador, Integer> {
 @Query(value="select*from morador where id = ?",nativeQuery = true )
-Morador findAll(Integer id);
+Morador find (Integer id);
 	
 }

@@ -1,5 +1,6 @@
 package com.romrio.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,21 +8,28 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.romrio.domain.Visitante;
-import com.romrio.domain.Visitante;
 import com.romrio.domain.repostory.RepositoryVisitante;
+import com.romrio.dto.VisitanteDto;
 
 @Service
 public class ServiceVisitante {
 	@Autowired
 	private RepositoryVisitante repo;
 
-	public Visitante find(Integer id) {
-		Visitante obj = repo.findAll(id);
-		return obj;
+	public VisitanteDto find(Integer id) {
+		Visitante obj = repo.find(id);
+		VisitanteDto objDto = new VisitanteDto(obj);
+		return objDto;
 	}
 
-	public List<Visitante> findAll() {
-		return repo.findAll();
+	public List<VisitanteDto> findAll() {
+		List<Visitante> obj = repo.findAll();
+		List<VisitanteDto> objDto = new ArrayList<>();
+		for (Visitante v : obj) {
+			VisitanteDto Dto = new VisitanteDto(v);
+			objDto.add(Dto);
+		}
+		return objDto;
 	}
 
 	public Visitante insert(Visitante obj) {

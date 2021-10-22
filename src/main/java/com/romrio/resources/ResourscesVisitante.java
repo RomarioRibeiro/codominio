@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.romrio.domain.Visitante;
-import com.romrio.domain.Visitante;
+import com.romrio.dto.VisitanteDto;
 import com.romrio.service.ServiceVisitante;
 
 @RestController
@@ -24,7 +24,7 @@ public class ResourscesVisitante {
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id ){
 		
-		Visitante obj = service.find(id);
+		VisitanteDto obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	@RequestMapping(method = RequestMethod.POST)
@@ -45,8 +45,8 @@ public class ResourscesVisitante {
 		return ResponseEntity.noContent().build();
 	}
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List <Visitante>> findAll(){
-		List<Visitante> list = service.findAll();
-		return ResponseEntity.ok().body(list);
+	public ResponseEntity<List <VisitanteDto>> findAll(){
+		List<VisitanteDto> listDto = service.findAll();
+		return ResponseEntity.ok().body(listDto);
 	}
 }

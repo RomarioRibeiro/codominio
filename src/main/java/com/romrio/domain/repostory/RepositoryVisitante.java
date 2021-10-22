@@ -8,6 +8,6 @@ import com.romrio.domain.Visitante;
 @Repository
 public interface RepositoryVisitante extends JpaRepository<Visitante, Integer> {
 @Query(value="select*from visitante where id = ?",nativeQuery = true )
-Visitante findAll(Integer id);
+Visitante find (Integer id);
 	
 }

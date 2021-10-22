@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.romrio.domain.Morador;
-import com.romrio.domain.Morador;
+import com.romrio.dto.MoradorDto;
 import com.romrio.service.ServiceMorador;
 
 @RestController
@@ -24,8 +24,8 @@ public class ResourscesMorador {
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id ){
 		
-		Morador obj = service.find(id);
-		return ResponseEntity.ok().body(obj);
+		MoradorDto objDto = service.find(id);
+		return ResponseEntity.ok().body(objDto);
 	}
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert (@RequestBody Morador obj){
@@ -45,8 +45,8 @@ public class ResourscesMorador {
 		return ResponseEntity.noContent().build();
 	}
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List <Morador>> findAll(){
-		List <Morador> list = service.findAll();
-		return ResponseEntity.ok().body(list);
+	public ResponseEntity<List <MoradorDto>> findAll(){
+		List <MoradorDto> listDto = service.findAll();
+		return ResponseEntity.ok().body(listDto);
 	}
 }

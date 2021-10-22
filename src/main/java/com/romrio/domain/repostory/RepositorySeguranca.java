@@ -8,6 +8,6 @@ import com.romrio.domain.Seguranca;
 @Repository
 public interface RepositorySeguranca extends JpaRepository<Seguranca, Integer> {
 @Query(value="select*from Seguranca where id = ?",nativeQuery = true )
-Seguranca findAll(Integer id);
+Seguranca find (Integer id);
 	
 }
