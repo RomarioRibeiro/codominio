@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.romrio.domain.Bloco;
 import com.romrio.dto.BlocoDto;
+import com.romrio.dto.views.BlocoViews;
 import com.romrio.service.ServiceBloco;
 
 @RestController
@@ -50,6 +52,7 @@ public class ResourscesBloco {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
+	@JsonView(BlocoViews.Resumo1.class)
 	public ResponseEntity<List<BlocoDto>> findAll() {
 		List<BlocoDto> listDto = service.findAll();
 		return ResponseEntity.ok().body(listDto);

@@ -1,12 +1,17 @@
 package com.romrio.dto;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.romrio.domain.Endereco;
+import com.romrio.dto.views.EnderecoViews;
 
 public class EnderecoDto {
 
 	private Integer id;
+	@JsonView(EnderecoViews.Resumo1.class)
 	private String logrador;
+	@JsonView(EnderecoViews.Resumo1.class)
 	private String bairro;
+	@JsonView(EnderecoViews.Resumo1.class)
 	private String complemento;
 	private String cep;
 	private String cidade;

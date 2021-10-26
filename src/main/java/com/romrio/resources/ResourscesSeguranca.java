@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.romrio.domain.Seguranca;
 import com.romrio.dto.SegurancaDto;
+import com.romrio.dto.views.SegurancaViews;
 import com.romrio.service.ServiceSeguranca;
 
 @RestController
@@ -45,6 +47,7 @@ public class ResourscesSeguranca {
 		return ResponseEntity.noContent().build();
 	}
 	@RequestMapping(method = RequestMethod.GET)
+	@JsonView(SegurancaViews.Resumo1.class)
 	public ResponseEntity<List <SegurancaDto>> findAll(){
 		List <SegurancaDto> listDto = service.findAll();
 		return ResponseEntity.ok().body(listDto);

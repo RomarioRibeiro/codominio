@@ -1,23 +1,26 @@
 package com.romrio.dto;
 
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.romrio.domain.Apartamento;
-import com.romrio.domain.Bloco;
-import com.romrio.domain.Condominio;
-import com.romrio.domain.Endereco;
+import com.romrio.dto.views.ApartamentoViews;
 
 public class ApartamentoDto {
-
+	@JsonView(ApartamentoViews.Resumo1.class)
 	private Integer id;
 	private int numero;
+	@JsonView(ApartamentoViews.Resumo1.class)
 	private int idBloco;
 	private String descricao;
+	@JsonView(ApartamentoViews.Resumo1.class)
 	private int idCondominio;
 	private Integer cnpj;
 	private int idEndereco;
+	@JsonView(ApartamentoViews.Resumo1.class)
 	private String logrador;
 	private String bairro;
 	private String complemento;
+	@JsonView(ApartamentoViews.Resumo1.class)
 	private String cep;
 	private String cidade;
 	private String UF;

@@ -1,0 +1,45 @@
+set foreign_key_checks = 0;
+SET SQL_SAFE_UPDATES=0;
+
+delete from apartamento;
+delete from bloco;
+delete from condominio;
+delete from endereco;
+delete from morador;
+delete from seguranca;
+delete from visitante;
+
+set foreign_key_checks = 1;
+
+alter table apartamento auto_incremento = 1;
+alter table bloco auto_incremento = 1;
+alter table condominio auto_incremento = 1;
+alter table endereco auto_incremento = 1;
+alter table morador auto_incremento = 1;
+alter table seguranca auto_incremento = 1 ;
+alter table visitante auto_incremento = 1;
+
+
+
+
+INSERT INFO apartamento (id, numero, bloco_id) VALUES
+('1' , '357' , '1');
+
+INSERT INFO bloco (id , descricao, condominio_id , endereco_id) VALUES
+('1' , 'bloco-A' , '1' , '1');
+
+INSERT INFO condominio (id , cnpj , end_id) VALUES
+('1' , '123456789' , '1');
+
+
+INSERT INFO endereco (id , uf , bairro, cep , cidade , complemento , logrador) VALUES
+('1' , 	'pr' , 'acacias' , '12345678' , 'sabaudia', 'deposito de gas' , 'rua espanha');
+
+INSET INTO  morador (id , cpf ,data_nasc, nome , apartamento_id , seguro_id) VALUES
+('1','12345678911' ,'1997-05-01' , 'Romario Ribeiro' '1' ,'1');
+
+INSERT INTO seguranca ( id , cpf , data_admissao , nome) VALUES
+('1' ,'12345678911', '2021-07-22' , 'Romario Ribeiro') ;
+
+INSERT INTO visitante (id , cpf ,nome, morador_id) VALUES 
+('1' ,'12345678911', 'Mario Ribeiro' ,'1');

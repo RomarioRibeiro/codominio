@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.romrio.domain.Condominio;
 import com.romrio.dto.CondominioDto;
+import com.romrio.dto.views.CondominioViews;
 import com.romrio.service.ServiceCondominio;
 
 @RestController
@@ -46,6 +48,7 @@ public class ResourscesCondominio {
 		return ResponseEntity.noContent().build();
 	}
 	@RequestMapping(method = RequestMethod.GET)
+	@JsonView(CondominioViews.Resumo1.class)
 	public ResponseEntity<List <CondominioDto>>findAll(){
 		List <CondominioDto> listDto = service.findAll();
 		return ResponseEntity.ok().body(listDto);

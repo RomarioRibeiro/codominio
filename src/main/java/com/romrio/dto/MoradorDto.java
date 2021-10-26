@@ -2,19 +2,25 @@ package com.romrio.dto;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.romrio.domain.Morador;
+import com.romrio.dto.views.MoradorViews;
 
 public class MoradorDto {
 
 	private Integer id;
 	private String nome;
+	@JsonView(MoradorViews.Resumo1.class)
 	private String cpf;
+	@JsonView(MoradorViews.Resumo1.class)
 	private Date dataNasc;
 	private int idApatamento;
 	private int numero;
+	@JsonView(MoradorViews.Resumo1.class)
 	private int idBloco;
 	private String  descricao;
 	private int idCondominio;
+	@JsonView(MoradorViews.Resumo1.class)
 	private Integer cnpj;
 	private int idEnd;
 	private String logrador;
@@ -52,23 +58,23 @@ public class MoradorDto {
 	}
 
 	public MoradorDto(Morador obj) {
-		this.id = id;
-		this.nome = nome;
-		this.cpf = cpf;
-		this.dataNasc = dataNasc;
-		this.idApatamento = idApatamento;
-		this.numero = numero;
-		this.idBloco = idBloco;
-		this.descricao = descricao;
-		this.idCondominio = idCondominio;
-		this.cnpj = cnpj;
-		this.idEnd = idEnd;
-		this.logrador = logrador;
-		this.bairro = bairro;
-		this.complemento = complemento;
-		this.cep = cep;
-		this.cidade = cidade;
-		this.UF = UF;
+		this.id = obj.getId();
+		this.nome = obj.getNome();
+		this.cpf = obj.getCpf();
+		this.dataNasc = obj.getDataNasc();
+		this.idApatamento = obj.getApatamento().getId();
+		this.numero = obj.getApatamento().getNumero();
+		this.idBloco = obj.getApatamento().getBloco().getId();
+		this.descricao = obj.getApatamento().getBloco().getDescricao();
+		this.idCondominio = obj.getApatamento().getBloco().getCondominio().getId();
+		this.cnpj = obj.getApatamento().getBloco().getCondominio().getCnpj();
+		this.idEnd = obj.getApatamento().getBloco().getCondominio().getEnd().getId();
+		this.logrador = obj.getApatamento().getBloco().getCondominio().getEnd().getLogrador();
+		this.bairro = obj.getApatamento().getBloco().getCondominio().getEnd().getBairro();
+		this.complemento = obj.getApatamento().getBloco().getCondominio().getEnd().getComplemento();
+		this.cep = obj.getApatamento().getBloco().getCondominio().getEnd().getCep();
+		this.cidade = obj.getApatamento().getBloco().getCondominio().getEnd().getCidade();
+		this.UF = obj.getApatamento().getBloco().getCondominio().getEnd().getUF();
 	}
 
 	public Integer getId() {

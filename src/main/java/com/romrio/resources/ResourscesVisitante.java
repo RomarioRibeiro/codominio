@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.romrio.domain.Visitante;
 import com.romrio.dto.VisitanteDto;
+import com.romrio.dto.views.VisitanteViews;
 import com.romrio.service.ServiceVisitante;
 
 @RestController
@@ -45,6 +47,7 @@ public class ResourscesVisitante {
 		return ResponseEntity.noContent().build();
 	}
 	@RequestMapping(method = RequestMethod.GET)
+	@JsonView(VisitanteViews.Resumo1.class)
 	public ResponseEntity<List <VisitanteDto>> findAll(){
 		List<VisitanteDto> listDto = service.findAll();
 		return ResponseEntity.ok().body(listDto);

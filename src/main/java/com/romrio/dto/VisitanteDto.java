@@ -2,25 +2,33 @@ package com.romrio.dto;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.romrio.domain.Visitante;
+import com.romrio.dto.views.VisitanteViews;
 
 public class VisitanteDto {
 
-	
+	@JsonView(VisitanteViews.Resumo1.class)
 	private Integer id;
+	@JsonView(VisitanteViews.Resumo1.class)
 	private String nome;
 	private String cpf;
 	private int idMorador;
+	@JsonView(VisitanteViews.Resumo1.class)
 	private String nome2;
 	private String cpf2;
 	private Date dataNasc;
 	private int idApatamento;
+	@JsonView(VisitanteViews.Resumo1.class)
 	private int numero;
+	@JsonView(VisitanteViews.Resumo1.class)
 	private int idBloco;
+	@JsonView(VisitanteViews.Resumo1.class)
 	private String  descricao;
 	private int  idCondominio;
 	private Integer cnpj;
 	private int End;
+	@JsonView(VisitanteViews.Resumo1.class)
 	private String logrador;
 	private String bairro;
 	private String complemento;
@@ -59,26 +67,26 @@ public class VisitanteDto {
 	}
 
 	public VisitanteDto(Visitante obj) {
-		this.id = id;
-		this.nome = nome;
-		this.cpf = cpf;
-		this.idMorador = idMorador;
-		this.nome2 = nome2;
-		this.cpf2 = cpf2;
-		this.dataNasc = dataNasc;
-		this.idApatamento = idApatamento;
-		this.numero = numero;
-		this.idBloco = idBloco;
-		this.descricao = descricao;
-		this.idCondominio = idCondominio;
-		this.cnpj = cnpj;
-		this.End= End;
-		this.logrador = logrador;
-		this.bairro = bairro;
-		this.complemento = complemento;
-		this.cep = cep;
-		this.cidade = cidade;
-		this.UF = UF;
+		this.id = obj.getId();
+		this.nome = obj.getNome();
+		this.cpf = obj.getCpf();
+		this.idMorador = obj.getMorador().getId();
+		this.nome2 = obj.getMorador().getNome();
+		this.cpf2 = obj.getMorador().getCpf();
+		this.dataNasc = obj.getMorador().getDataNasc();
+		this.idApatamento = obj.getMorador().getApatamento().getId();
+		this.numero = obj.getMorador().getApatamento().getNumero();
+		this.idBloco = obj.getMorador().getApatamento().getBloco().getId();
+		this.descricao = obj.getMorador().getApatamento().getBloco().getDescricao();
+		this.idCondominio = obj.getMorador().getApatamento().getBloco().getCondominio().getId();
+		this.cnpj =obj.getMorador().getApatamento().getBloco().getCondominio().getCnpj() ;
+		this.End= obj.getMorador().getApatamento().getBloco().getCondominio().getEnd().getId();
+		this.logrador = obj.getMorador().getApatamento().getBloco().getCondominio().getEnd().getLogrador();
+		this.bairro = obj.getMorador().getApatamento().getBloco().getCondominio().getEnd().getBairro();
+		this.complemento = obj.getMorador().getApatamento().getBloco().getCondominio().getEnd().getComplemento();
+		this.cep = obj.getMorador().getApatamento().getBloco().getCondominio().getEnd().getCep();
+		this.cidade = obj.getMorador().getApatamento().getBloco().getCondominio().getEnd().getCidade();
+		this.UF = obj.getMorador().getApatamento().getBloco().getCondominio().getEnd().getUF();
 	}
 
 	public Integer getId() {

@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.romrio.domain.Morador;
 import com.romrio.dto.MoradorDto;
+import com.romrio.dto.views.MoradorViews;
 import com.romrio.service.ServiceMorador;
 
 @RestController
@@ -45,6 +47,7 @@ public class ResourscesMorador {
 		return ResponseEntity.noContent().build();
 	}
 	@RequestMapping(method = RequestMethod.GET)
+	@JsonView(MoradorViews.Resumo1.class)
 	public ResponseEntity<List <MoradorDto>> findAll(){
 		List <MoradorDto> listDto = service.findAll();
 		return ResponseEntity.ok().body(listDto);

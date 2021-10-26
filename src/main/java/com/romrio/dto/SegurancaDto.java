@@ -2,12 +2,16 @@ package com.romrio.dto;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.romrio.domain.Seguranca;
+import com.romrio.dto.views.SegurancaViews;
 
 public class SegurancaDto {
 
 	private Integer id;
+	@JsonView(SegurancaViews.Resumo1.class)
 	private String nome;
+	@JsonView(SegurancaViews.Resumo1.class)
 	private String cpf;
 	private Date dataAdmisao;
 	
