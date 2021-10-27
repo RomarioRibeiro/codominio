@@ -21,20 +21,20 @@ public class Morador implements Serializable {
 	private String cpf;
 	private Date dataNasc;
 	@OneToOne
-	private Apartamento apatamento;
+	private Apartamento apartamento;
 	@ManyToOne
 	private Seguranca seguro;
 	public Morador() {
 		super();
 	}
 
-	public Morador(Integer id, String nome, String cpf, Date dataNasc, Apartamento apatamento) {
+	public Morador(Integer id, String nome, String cpf, Date dataNasc, Apartamento apartamento) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.dataNasc = dataNasc;
-		this.apatamento = apatamento;
+		this.apartamento = apartamento;
 	}
 
 	public Integer getId() {
@@ -70,11 +70,11 @@ public class Morador implements Serializable {
 	}
 
 	public Apartamento getApatamento() {
-		return apatamento;
+		return apartamento;
 	}
 
 	public void setApatamento(Apartamento apatamento) {
-		this.apatamento = apatamento;
+		this.apartamento = apatamento;
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class Morador implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Morador [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", apatamento=" + apatamento + "]";
+		return "Morador [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", apatamento=" + apartamento + "]";
 	}
 	
 	

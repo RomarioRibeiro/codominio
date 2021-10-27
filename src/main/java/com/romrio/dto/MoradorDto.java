@@ -14,7 +14,7 @@ public class MoradorDto {
 	private String cpf;
 	@JsonView(MoradorViews.Resumo1.class)
 	private Date dataNasc;
-	private int idApatamento;
+	private int idApartamento;
 	private int numero;
 	@JsonView(MoradorViews.Resumo1.class)
 	private int idBloco;
@@ -34,7 +34,7 @@ public class MoradorDto {
 		super();
 	}
 
-	public MoradorDto(Integer id, String nome, String cpf, Date dataNasc, int idApatamento, int numero, int idBloco,
+	public MoradorDto(Integer id, String nome, String cpf, Date dataNasc, int idApartamento, int numero, int idBloco,
 			String descricao, int idCondominio, Integer cnpj, int idEnd, String logrador, String bairro,
 			String complemento, String cep, String cidade, String uF) {
 		super();
@@ -42,7 +42,7 @@ public class MoradorDto {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.dataNasc = dataNasc;
-		this.idApatamento = idApatamento;
+		this.idApartamento = idApartamento;
 		this.numero = numero;
 		this.idBloco = idBloco;
 		this.descricao = descricao;
@@ -62,7 +62,7 @@ public class MoradorDto {
 		this.nome = obj.getNome();
 		this.cpf = obj.getCpf();
 		this.dataNasc = obj.getDataNasc();
-		this.idApatamento = obj.getApatamento().getId();
+		this.idApartamento = obj.getApatamento().getId();
 		this.numero = obj.getApatamento().getNumero();
 		this.idBloco = obj.getApatamento().getBloco().getId();
 		this.descricao = obj.getApatamento().getBloco().getDescricao();
@@ -110,11 +110,11 @@ public class MoradorDto {
 	}
 
 	public int getIdApatamento() {
-		return idApatamento;
+		return idApartamento;
 	}
 
 	public void setIdApatamento(int idApatamento) {
-		this.idApatamento = idApatamento;
+		this.idApartamento = idApatamento;
 	}
 
 	public int getNumero() {

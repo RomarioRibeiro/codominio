@@ -28,10 +28,10 @@ public class SegurancaDto {
 	}
 
 	public SegurancaDto(Seguranca obj) {
-		this.id = id;
-		this.nome = nome;
-		this.cpf = cpf;
-		this.dataAdmisao = dataAdmisao;
+		this.id = obj.getId();
+		this.nome = obj.getNome();
+		this.cpf = obj.getCpf();
+		this.dataAdmisao = obj.getDataAdmisao();
 	}
 
 	public Integer getId() {
