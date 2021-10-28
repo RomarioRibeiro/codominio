@@ -11,10 +11,10 @@ public class BlocoDto {
 	private Integer id;
 	@JsonView(BlocoViews.Resumo1.class)
 	private String descricao;
-	private Condominio idCondominio;
+	private int idCondominio;
 	private Integer cnpj;
 	@JsonView(BlocoViews.Resumo1.class)
-	private Endereco idEndereco;
+	private int idEndereco;
 	@JsonView(BlocoViews.Resumo1.class)
 	private String logrador;
 	@JsonView(BlocoViews.Resumo1.class)
@@ -32,7 +32,7 @@ public class BlocoDto {
 		super();
 	}
 
-	public BlocoDto(Integer id, String descricao, Condominio idCondominio, Integer cnpj, Endereco idEndereco,
+	public BlocoDto(Integer id, String descricao, int idCondominio, Integer cnpj, int idEndereco,
 			String logrador, String bairro, String complemento, String cep, String cidade, String uF) {
 		super();
 		this.id = id;
@@ -49,17 +49,17 @@ public class BlocoDto {
 	}
 
 	public BlocoDto(Bloco obj) {
-		this.id = id;
-		this.descricao = descricao;
-		this.idCondominio = idCondominio;
-		this.cnpj = cnpj;
-		this.idEndereco = idEndereco;
-		this.logrador = logrador;
-		this.bairro = bairro;
-		this.complemento = complemento;
-		this.cep = cep;
-		this.cidade = cidade;
-		this.UF =UF;
+		this.id = obj.getId();
+		this.descricao = obj.getDescricao();
+		this.idCondominio = obj.getCondominio().getId();
+		this.cnpj = obj.getCondominio().getCnpj();
+		this.idEndereco = obj.getCondominio().getEnd().getId();
+		this.logrador = obj.getCondominio().getEnd().getLogrador();
+		this.bairro = obj.getCondominio().getEnd().getBairro();
+		this.complemento = obj.getCondominio().getEnd().getComplemento();
+		this.cep = obj.getCondominio().getEnd().getCep();
+		this.cidade = obj.getCondominio().getEnd().getCidade();
+		this.UF =obj.getCondominio().getEnd().getUF();
 	}
 
 
@@ -80,11 +80,11 @@ public class BlocoDto {
 		this.descricao = descricao;
 	}
 
-	public Condominio getIdCondominio() {
+	public int getIdCondominio() {
 		return idCondominio;
 	}
 
-	public void setIdCondominio(Condominio idCondominio) {
+	public void setIdCondominio(int idCondominio) {
 		this.idCondominio = idCondominio;
 	}
 
@@ -96,11 +96,11 @@ public class BlocoDto {
 		this.cnpj = cnpj;
 	}
 
-	public Endereco getIdEndereco() {
+	public int getIdEndereco() {
 		return idEndereco;
 	}
 
-	public void setIdEndereco(Endereco idEndereco) {
+	public void setIdEndereco(int idEndereco) {
 		this.idEndereco = idEndereco;
 	}
 

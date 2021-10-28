@@ -20,26 +20,28 @@ alter table seguranca auto_increment = 1 ;
 alter table visitante auto_increment = 1;
 
 
-
-
-INSERT INTO apartamento (id, numero, bloco_id) VALUES
-('1' , '357' , '1');
-
-INSERT INTO bloco (id , descricao, condominio_id , endereco_id) VALUES
-('1' , 'bloco-A' , '1' , '1');
+INSERT INTO endereco (id , uf , bairro, cep , cidade , complemento , logrador) VALUES
+('1' , 	'pr' , 'acacias' , '12345678' , 'sabaudia', 'deposito de gas' , 'rua espanha');
 
 INSERT INTO condominio (id , cnpj , end_id) VALUES
 ('1' , '123456789' , '1');
 
+INSERT INTO bloco (id , descricao, condominio_id , endereco_id) VALUES
+('1' , 'bloco-A' , '1' , '1');
 
-INSERT INTO endereco (id , uf , bairro, cep , cidade , complemento , logrador) VALUES
-('1' , 	'pr' , 'acacias' , '12345678' , 'sabaudia', 'deposito de gas' , 'rua espanha');
+INSERT INTO apartamento (id, numero, bloco_id) VALUES
+('1' , '357' , '1');
+
+
+INSERT INTO seguranca ( id , cpf , data_admisao , nome) VALUES
+('1' ,'12345678911', '2021-07-22' , 'Romario Ribeiro') ;
+
+
 
 INSERT INTO  morador (id , cpf ,data_nasc, nome , apatamento_id , seguro_id) VALUES
 ('1','12345678911' ,'1997-05-01' , 'Romario Ribeiro', '1' ,'1');
 
-INSERT INTO seguranca ( id , cpf , data_admisao , nome) VALUES
-('1' ,'12345678911', '2021-07-22' , 'Romario Ribeiro') ;
+
 
 INSERT INTO visitante (id , cpf ,nome, morador_id) VALUES 
 ('1' ,'12345678911', 'Mario Ribeiro' ,'1');
