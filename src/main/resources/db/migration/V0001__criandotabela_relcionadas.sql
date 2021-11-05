@@ -48,7 +48,7 @@
         cpf varchar(255),
         data_nasc datetime(6),
         nome varchar(255),
-        apatamento_id integer,
+        apartamento_id integer,
         seguro_id integer,
         primary key (id)
     ) engine=InnoDB default charset=utf8MB4;
@@ -99,7 +99,7 @@
     
     alter table morador 
        add constraint FKapartamento_morador
-       foreign key (apatamento_id) 
+       foreign key (apartamento_id) 
        references apartamento (id);
  
     

@@ -7,20 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.romrio.domain.Apartamento;
+import com.romrio.domain.Endereco;
 import com.romrio.domain.Morador;
 import com.romrio.domain.repostory.RepositoryMorador;
 import com.romrio.dto.MoradorDto;
+import com.romrio.dto.MoradorNewDTO;
 
 @Service
 public class ServiceMorador {
 	@Autowired
 	private RepositoryMorador repo;
 
-	public MoradorDto find(Integer id) {
+	public Morador find(Integer id) {
 		Morador obj = repo.find(id);
 		MoradorDto objDto = new MoradorDto(obj);
 		
-		return objDto;
+		return obj;
 	}
 
 	public List<MoradorDto> findAll() {
@@ -34,14 +37,23 @@ public class ServiceMorador {
 	}
 
 	public Morador insert(Morador obj) {
-		find(obj.getId());
+		obj.setId(null);
 		return repo.save(obj);
 	}
 
 	public Morador update(Morador obj) {
-		find(obj.getId());
-		return repo.save(obj);
+	Morador	newobj = find(obj.getId());
+		update (newobj, obj); 
+		return repo.save(newobj);
 	}
+
+	private void update(Morador newobj, Morador obj) {
+		newobj.setNome(obj.getNome());
+		
+	}
+
+	
+	
 
 	public void delete(Integer id) {
 		find(id);
@@ -52,4 +64,13 @@ public class ServiceMorador {
 		}
 
 	}
+
+	
+	public Morador fromDTO(MoradorNewDTO objDTo) {
+		Morador mor = new Morador(null, objDTo.getNome(), objDTo.getCpf(), objDTo.getDataNasc(), null);
+		Endereco end = new Endereco(null, objDTo.getLogrador(), objDTo.getBairro(), objDTo.getComplemento(), objDTo.getCep(), objDTo.getCidade(), objDTo.getUF());
+		
+		return mor;
+	}
+	
 }

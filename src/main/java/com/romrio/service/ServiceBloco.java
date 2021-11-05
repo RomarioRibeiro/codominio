@@ -34,7 +34,7 @@ public class ServiceBloco {
 	}
 
 	public Bloco insert(Bloco obj) {
-		find(obj.getId());
+		obj.setId(null);
 		return repo.save(obj);
 	}
 

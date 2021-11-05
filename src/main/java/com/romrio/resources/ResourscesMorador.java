@@ -15,6 +15,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.romrio.domain.Morador;
 import com.romrio.dto.MoradorDto;
+import com.romrio.dto.MoradorNewDTO;
+
 import com.romrio.dto.views.MoradorViews;
 import com.romrio.service.ServiceMorador;
 
@@ -23,14 +25,16 @@ import com.romrio.service.ServiceMorador;
 public class ResourscesMorador {
 	@Autowired
 	private ServiceMorador service;
+	
 	@RequestMapping(value="/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id ){
 		
-		MoradorDto objDto = service.find(id);
+		Morador objDto = service.find(id);
 		return ResponseEntity.ok().body(objDto);
 	}
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> insert (@RequestBody Morador obj){
+	public ResponseEntity<Void> insert (@RequestBody MoradorNewDTO objDTo){
+		Morador obj = service.fromDTO(objDTo);
 		 obj = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();

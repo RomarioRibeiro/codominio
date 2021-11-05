@@ -34,7 +34,7 @@ public class ServiceApartamento {
 	}
 
 	public Apartamento insert(Apartamento obj) {
-		find(obj.getId());
+		obj.setId(null);
 		return repo.save(obj);
 	}
 

@@ -2,6 +2,7 @@ package com.romrio.dto;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.romrio.domain.Morador;
 import com.romrio.dto.views.MoradorViews;
@@ -10,17 +11,15 @@ public class MoradorDto {
 
 	private Integer id;
 	private String nome;
-	@JsonView(MoradorViews.Resumo1.class)
+	
 	private String cpf;
-	@JsonView(MoradorViews.Resumo1.class)
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date dataNasc;
 	private int idApartamento;
 	private int numero;
-	@JsonView(MoradorViews.Resumo1.class)
 	private int idBloco;
 	private String  descricao;
 	private int idCondominio;
-	@JsonView(MoradorViews.Resumo1.class)
 	private Integer cnpj;
 	private int idEnd;
 	private String logrador;

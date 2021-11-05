@@ -33,7 +33,7 @@ public class ServiceVisitante {
 	}
 
 	public Visitante insert(Visitante obj) {
-		find(obj.getId());
+		obj.setId(null);
 		return repo.save(obj);
 	}
 

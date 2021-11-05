@@ -38,7 +38,7 @@ INSERT INTO seguranca ( id , cpf , data_admisao , nome) VALUES
 
 
 
-INSERT INTO  morador (id , cpf ,data_nasc, nome , apatamento_id , seguro_id) VALUES
+INSERT INTO  morador (id , cpf ,data_nasc, nome , apartamento_id , seguro_id) VALUES
 ('1','12345678911' ,'1997-05-01' , 'Romario Ribeiro', '1' ,'1');
 
 
