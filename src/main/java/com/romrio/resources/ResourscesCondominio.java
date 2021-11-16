@@ -48,7 +48,7 @@ public class ResourscesCondominio {
 		return ResponseEntity.noContent().build();
 	}
 	@RequestMapping(method = RequestMethod.GET)
-	@JsonView(CondominioViews.Resumo1.class)
+
 	public ResponseEntity<List <CondominioDto>>findAll(){
 		List <CondominioDto> listDto = service.findAll();
 		return ResponseEntity.ok().body(listDto);
