@@ -6,13 +6,13 @@ import com.romrio.dto.views.CondominioViews;
 
 public class CondominioDto {
 
-	@JsonView(CondominioViews.Resumo1.class)
+	
 	private int id;
 	private Integer cnpj;
-	@JsonView(CondominioViews.Resumo1.class)
+	
 	private int idEnd;
 	private String logrador;
-	@JsonView(CondominioViews.Resumo1.class)
+	
 	private String bairro;
 	private String complemento;
 	private String cep;

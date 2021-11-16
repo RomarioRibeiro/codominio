@@ -1,26 +1,28 @@
 package com.romrio.dto;
 
 
-import com.fasterxml.jackson.annotation.JsonView;
-import com.romrio.domain.Apartamento;
-import com.romrio.dto.views.ApartamentoViews;
+import java.io.Serializable;
 
-public class ApartamentoDto {
-	@JsonView(ApartamentoViews.Resumo1.class)
+import com.romrio.domain.Apartamento;
+
+public class ApartamentoDto implements Serializable {
+	
+	
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private int numero;
-	@JsonView(ApartamentoViews.Resumo1.class)
+	
 	private int idBloco;
 	private String descricao;
-	@JsonView(ApartamentoViews.Resumo1.class)
+	
 	private int idCondominio;
 	private Integer cnpj;
 	private int idEndereco;
-	@JsonView(ApartamentoViews.Resumo1.class)
+	
 	private String logrador;
 	private String bairro;
 	private String complemento;
-	@JsonView(ApartamentoViews.Resumo1.class)
+	
 	private String cep;
 	private String cidade;
 	private String UF;

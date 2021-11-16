@@ -33,17 +33,18 @@ public class ResourscesApartamento {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> insert (@RequestBody Apartamento obj){
-		 obj = service.insert(obj);
+	public ResponseEntity<Void> insert (@RequestBody ApartamentoDto obj){
+		 Apartamento apart = service.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
 	@RequestMapping(value = "/{id}",method = RequestMethod.PUT)
-	public ResponseEntity<Apartamento> update(@RequestBody Apartamento obj, @PathVariable Integer id){
-		obj.setId(id);
-		Apartamento objNovo=service.update(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-		return ResponseEntity.created(uri).body(objNovo);
+	public ResponseEntity<Apartamento> update(@RequestBody ApartamentoDto obj, @PathVariable Integer id){
+		Apartamento objnew =service.update(obj);
+		objnew.setId(id);
+		 objnew = service.update(obj);
+		
+		return ResponseEntity.noContent().build();
 	}
 	@RequestMapping(value= "/{id}",method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete (@PathVariable Integer id){
@@ -52,7 +53,7 @@ public class ResourscesApartamento {
 	}
 	
 	@RequestMapping(method =RequestMethod.GET)
-	@JsonView(ApartamentoViews.Resumo1.class)
+	
 	public ResponseEntity<List<ApartamentoDto>> findAll() {
 		List<ApartamentoDto> list = service.findAll();
 		return ResponseEntity.ok().body(list);

@@ -33,6 +33,10 @@ public class Apartamento implements Serializable{
 		this.bloco = bloco;
 	}
 
+	public Apartamento(Integer id2, int idBloco) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -95,6 +99,14 @@ public class Apartamento implements Serializable{
 	public String toString() {
 		return "Apartamento [id=" + id + ", numero=" + numero + ", bloco=" + bloco + "]";
 	}
+
+	public Integer getIdBloco() {
+		this.numero = numero;
+		this.bloco = bloco;
+		return getId();
+	}
+
+	
 	
 	
 	

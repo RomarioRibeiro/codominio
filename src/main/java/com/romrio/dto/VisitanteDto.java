@@ -8,27 +8,27 @@ import com.romrio.dto.views.VisitanteViews;
 
 public class VisitanteDto {
 
-	@JsonView(VisitanteViews.Resumo1.class)
+	
 	private Integer id;
-	@JsonView(VisitanteViews.Resumo1.class)
+	
 	private String nome;
 	private String cpf;
 	private int idMorador;
-	@JsonView(VisitanteViews.Resumo1.class)
+	
 	private String nome2;
 	private String cpf2;
 	private Date dataNasc;
 	private int idApatamento;
-	@JsonView(VisitanteViews.Resumo1.class)
+	
 	private int numero;
-	@JsonView(VisitanteViews.Resumo1.class)
+	
 	private int idBloco;
-	@JsonView(VisitanteViews.Resumo1.class)
+	
 	private String  descricao;
 	private int  idCondominio;
 	private Integer cnpj;
 	private int End;
-	@JsonView(VisitanteViews.Resumo1.class)
+	
 	private String logrador;
 	private String bairro;
 	private String complemento;
