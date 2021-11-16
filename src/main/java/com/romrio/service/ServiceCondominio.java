@@ -8,13 +8,18 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.romrio.domain.Condominio;
+import com.romrio.domain.Endereco;
 import com.romrio.domain.repostory.RepositoryCondominio;
+import com.romrio.domain.repostory.RepositoryEndereco;
 import com.romrio.dto.CondominioDto;
 
 @Service
 public class ServiceCondominio {
 	@Autowired
 	private RepositoryCondominio repo;
+
+	@Autowired
+	private RepositoryEndereco repoEndereco;
 
 	public CondominioDto find(Integer id) {
 		Condominio obj = repo.find(id);
@@ -32,10 +37,12 @@ public class ServiceCondominio {
 		return condominioDto;
 	}
 
-	public Condominio insert(Condominio obj) {
+	public Condominio insert(CondominioDto obj) {
+		Condominio c = new Condominio();
+		Endereco e = repoEndereco.find(obj.getIdEnd());
+		c.setId(e);
 		
-		obj.setId(0);
-		return repo.save(obj);
+		return repo.save(c);
 	}
 
 	public Condominio update(Condominio obj) {

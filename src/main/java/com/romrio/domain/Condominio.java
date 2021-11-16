@@ -70,6 +70,10 @@ public class Condominio implements Serializable {
 	public Condominio() {
 		super();
 	}
+	public void setId(Endereco e) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }
